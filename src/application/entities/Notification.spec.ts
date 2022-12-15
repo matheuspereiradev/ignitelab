@@ -5,9 +5,7 @@ describe("Notification", ()=>{
         const notfication = new Notification({
             category: "teste",
             recipientID: "327321",
-            content: "test",
-            id: "1451",
-            createdAt: new Date(),
+            content: "test"
         })
     
         expect(notfication).toBeTruthy()
@@ -17,9 +15,7 @@ describe("Notification", ()=>{
         const notfication = new Notification({
             category: "teste",
             recipientID: "327321",
-            content: "test",
-            id: "1451",
-            createdAt: new Date(),
+            content: "test"
         })
     
         expect(()=>notfication.content = "a").toThrow()
@@ -29,9 +25,7 @@ describe("Notification", ()=>{
         const notfication = new Notification({
             category: "teste",
             recipientID: "327321",
-            content: "test",
-            id: "1451",
-            createdAt: new Date(),
+            content: "test"
         })
         expect(()=>notfication.content = "a".repeat(255)).toThrow()
     })
