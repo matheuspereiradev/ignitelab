@@ -1,4 +1,6 @@
-export default {
+import { Config } from "jest"
+
+const config:Config = {
     moduleFileExtensions: [
         "js",
         "json",
@@ -15,3 +17,5 @@ export default {
     coverageDirectory: "../coverage",
     testEnvironment: "node"
 }
+
+export default config

@@ -5,8 +5,9 @@ export interface NotificationProps {
     category: string
     content: string;
     recipientID: string
-    readAt?: Date | null | undefined
-    createdAt: Date
+    readAt?: Date | null 
+    createdAt: Date,
+    deletedAt?: Date | null 
 }
 
 export class Notification {
@@ -52,17 +53,25 @@ export class Notification {
     public set readAt(readAt: Date | null | undefined) {
         this.props.readAt = readAt
     }
-
+    
     public get readAt(): Date | null | undefined {
         return this.props.readAt
     }
-
+    
     public get createdAt(): Date | null | undefined {
         return this.props.createdAt
     }
     
+    public get deletedAt(): Date | null | undefined {
+        return this.props.deletedAt
+    }
+    
     public get id(): string {
         return this._id
+    }
+
+    public cancel() {
+        this.props.deletedAt = new Date()
     }
 }
 
