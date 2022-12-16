@@ -2,6 +2,7 @@ import { Body, Controller, Get, Post } from '@nestjs/common';
 import { randomUUID } from "node:crypto"
 import { SendNotification } from 'src/application/use-cases/send-notification.case';
 import { CreateNotificationBody } from '../dtos/createNotification.body';
+import { NotificationViewMapper } from '../mappers/Notification.view';
 
 @Controller('notifications')
 export class NotificationsController {
@@ -17,7 +18,7 @@ export class NotificationsController {
       category,
       content
     });
-    
-    return notification;
+ 
+    return NotificationViewMapper.toHttp(notification);
   }
 }

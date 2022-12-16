@@ -58,8 +58,9 @@ export class Notification {
     }
 
     public get createdAt(): Date | null | undefined {
-        return this.props.readAt
+        return this.props.createdAt
     }
+    
     public get id(): string {
         return this._id
     }
