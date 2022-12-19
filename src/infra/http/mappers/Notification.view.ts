@@ -2,7 +2,6 @@ import { Notification } from "../../../application/entities/Notification";
 
 export class NotificationViewMapper {
     static toHttp(notification: Notification) {
-        console.log(notification)
         return {
             id: notification.id,
             category: notification.category,

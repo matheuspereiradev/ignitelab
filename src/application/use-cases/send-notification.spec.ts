@@ -1,3 +1,4 @@
+import { makeNotification } from "../../../test/factories/notification.factory"
 import { InMemoryNotificationRepository } from "../../../test/repositories/in-memory-notification.repository"
 import { SendNotification } from "./send-notification.case"
 
@@ -8,11 +9,7 @@ describe("Test of send notifications", () => {
         const notificationRepository = new InMemoryNotificationRepository()
         const sendNotification = new SendNotification(notificationRepository)
 
-        const { notification } = await sendNotification.execute({
-            category: "Mensagem",
-            content: "Teste do repositorio com sucesso",
-            recipientID: "a1da3829-9b52-4da7-84f5-24f56a655297"
-        })
+        const { notification } = await sendNotification.execute(makeNotification())
 
         expect(notificationRepository.notifications).toHaveLength(1)
         expect(notificationRepository.notifications[0]).toEqual(notification)
